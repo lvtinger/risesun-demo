@@ -18,8 +18,7 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
         this.cache = cache;
     }
 
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
+    public Object invoke(Object proxy, Method method, Object[] args) {
         MapperMethod mapperMethod = cache.get(method);
         if(mapperMethod == null){
             mapperMethod = new MapperMethod(type, method, session.getConfiguration());
