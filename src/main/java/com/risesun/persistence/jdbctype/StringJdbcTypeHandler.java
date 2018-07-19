@@ -1,10 +1,10 @@
-package com.risesun.persistence.type;
+package com.risesun.persistence.jdbctype;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class StringTypeHandler extends AbstractTypeHandler<String> {
+public class StringJdbcTypeHandler extends AbstractJdbcTypeHandler<String> {
     @Override
     protected void setNullParameter(PreparedStatement preparedStatement, int parameterIndex, JdbcType jdbcType) throws SQLException {
         preparedStatement.setNull(parameterIndex, JdbcType.STRING.TYPE_CODE);

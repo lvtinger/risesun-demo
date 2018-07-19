@@ -1,5 +1,7 @@
 package com.risesun.persistence;
 
+import com.risesun.persistence.datasource.Datasource;
+
 import java.sql.PreparedStatement;
 
 public class DefaultExecutor implements Executor {

@@ -1,4 +1,4 @@
-package com.risesun.persistence.type;
+package com.risesun.persistence.jdbctype;
 
 import java.sql.Types;
 

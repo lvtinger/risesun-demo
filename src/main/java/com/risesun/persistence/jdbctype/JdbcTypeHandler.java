@@ -1,10 +1,10 @@
-package com.risesun.persistence.type;
+package com.risesun.persistence.jdbctype;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public interface TypeHandler<T> {
+public interface JdbcTypeHandler<T> {
     /**
      * 设置PreparedStatement参数值
      * @param preparedStatement

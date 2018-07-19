@@ -1,8 +1,8 @@
 package com.risesun.persistence;
 
-import com.risesun.persistence.type.TypeHandler;
+import com.risesun.persistence.jdbctype.JdbcTypeHandler;
 
 public class ParameterMapper {
     private int index;
-    private TypeHandler<?> typeHandler;
+    private JdbcTypeHandler<?> typeHandler;
 }

@@ -1,4 +1,4 @@
-package com.risesun.persistence.type;
+package com.risesun.persistence.jdbctype;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 /**
  * @author qiuxu
  */
-public abstract class AbstractTypeHandler<T> implements TypeHandler<T> {
+public abstract class AbstractJdbcTypeHandler<T> implements JdbcTypeHandler<T> {
 
     @Override
     public void set(PreparedStatement preparedStatement, int parameterIndex, T parameterValue, JdbcType jdbcType) throws SQLException {
