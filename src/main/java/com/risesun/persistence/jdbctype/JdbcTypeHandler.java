@@ -12,7 +12,7 @@ public interface JdbcTypeHandler<T> {
      * @param parameterValue
      * @param jdbcType
      */
-    void set(PreparedStatement preparedStatement, int parameterIndex, T parameterValue, JdbcType jdbcType) throws SQLException;
+    void set(PreparedStatement preparedStatement, int parameterIndex, Object parameterValue, JdbcType jdbcType) throws SQLException;
 
     /**
      * 读取ResultSet的值

@@ -10,11 +10,11 @@ import java.sql.SQLException;
 public abstract class AbstractJdbcTypeHandler<T> implements JdbcTypeHandler<T> {
 
     @Override
-    public void set(PreparedStatement preparedStatement, int parameterIndex, T parameterValue, JdbcType jdbcType) throws SQLException {
+    public void set(PreparedStatement preparedStatement, int parameterIndex, Object parameterValue, JdbcType jdbcType) throws SQLException {
         if(parameterValue == null){
             setNullParameter(preparedStatement, parameterIndex, jdbcType);
         } else {
-            setNotNullParameter(preparedStatement, parameterIndex, parameterValue);
+            setNotNullParameter(preparedStatement, parameterIndex, (T) parameterValue);
         }
     }
 
