@@ -6,9 +6,18 @@ import com.risesun.persistence.jdbctype.JdbcTypeHandler;
 import java.lang.reflect.Field;
 
 public class ParameterMapper {
+    private int parameterIndex;
     private JdbcTypeHandler<?> typeHandler;
     private Field field;
     private JdbcType jdbcType;
+
+    public int getParameterIndex() {
+        return parameterIndex;
+    }
+
+    public void setParameterIndex(int parameterIndex) {
+        this.parameterIndex = parameterIndex;
+    }
 
     public JdbcTypeHandler<?> getTypeHandler() {
         return typeHandler;

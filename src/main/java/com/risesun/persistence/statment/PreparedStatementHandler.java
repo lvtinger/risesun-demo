@@ -22,7 +22,7 @@ public class PreparedStatementHandler implements StatementHandler {
             for (int i = 0; i < length; i++){
                 ParameterMapper parameter = parameters.get(i);
                 Field field = parameter.getField();
-                Object value = args[i];
+                Object value = args[parameter.getParameterIndex()];
                 if(field == null){
                     parameter.getTypeHandler().set(statement, i + 1, value, parameter.getJdbcType());
                 } else {
