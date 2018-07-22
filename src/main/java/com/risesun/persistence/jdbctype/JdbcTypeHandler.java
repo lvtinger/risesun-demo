@@ -4,9 +4,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author qiuxu
+ */
 public interface JdbcTypeHandler<T> {
     /**
      * 设置PreparedStatement参数值
+     *
      * @param preparedStatement
      * @param parameterIndex
      * @param parameterValue
@@ -16,6 +20,7 @@ public interface JdbcTypeHandler<T> {
 
     /**
      * 读取ResultSet的值
+     *
      * @param resultSet
      * @param columnName
      * @return
@@ -24,6 +29,7 @@ public interface JdbcTypeHandler<T> {
 
     /**
      * 读取ResultSet的值
+     *
      * @param resultSet
      * @param columnIndex
      * @return

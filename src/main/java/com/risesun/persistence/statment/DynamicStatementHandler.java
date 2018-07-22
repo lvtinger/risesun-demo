@@ -4,6 +4,7 @@ import com.risesun.persistence.datasource.Datasource;
 import com.risesun.persistence.mapper.StatementMapper;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DynamicStatementHandler implements StatementHandler {
@@ -13,5 +14,10 @@ public class DynamicStatementHandler implements StatementHandler {
         DynamicStatementBuilder builder = statementMapper.getBuilder();
 
         return null;
+    }
+
+    @Override
+    public int update(Statement statement, StatementMapper statementMapper) throws SQLException {
+        return 0;
     }
 }

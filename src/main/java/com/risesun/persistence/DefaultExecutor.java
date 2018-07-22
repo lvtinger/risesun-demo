@@ -9,7 +9,7 @@ public class DefaultExecutor implements Executor {
     @Override
     public int update(Datasource datasource, StatementMapper mapper, Object[] args) throws Exception {
         PreparedStatement statement = datasource.getConnection()
-                .prepareStatement(mapper.getCommand());
+                .prepareStatement(mapper.getCommandText());
 
         int count = statement.executeUpdate();
         return count;

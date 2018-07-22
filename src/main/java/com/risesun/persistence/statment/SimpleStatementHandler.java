@@ -1,7 +1,7 @@
 package com.risesun.persistence.statment;
 
-import com.risesun.persistence.mapper.StatementMapper;
 import com.risesun.persistence.datasource.Datasource;
+import com.risesun.persistence.mapper.StatementMapper;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -17,6 +17,6 @@ public class SimpleStatementHandler implements StatementHandler {
 
     @Override
     public int update(Statement statement, StatementMapper statementMapper) throws SQLException {
-        return statement.executeUpdate(statementMapper.getCommand());
+        return statement.executeUpdate(statementMapper.getCommandText());
     }
 }

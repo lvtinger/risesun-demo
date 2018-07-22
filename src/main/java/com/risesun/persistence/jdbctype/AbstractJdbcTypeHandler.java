@@ -11,7 +11,7 @@ public abstract class AbstractJdbcTypeHandler<T> implements JdbcTypeHandler<T> {
 
     @Override
     public void set(PreparedStatement preparedStatement, int parameterIndex, Object parameterValue, JdbcType jdbcType) throws SQLException {
-        if(parameterValue == null){
+        if (parameterValue == null) {
             setNullParameter(preparedStatement, parameterIndex, jdbcType);
         } else {
             setNotNullParameter(preparedStatement, parameterIndex, (T) parameterValue);
@@ -20,6 +20,7 @@ public abstract class AbstractJdbcTypeHandler<T> implements JdbcTypeHandler<T> {
 
     /**
      * 设置空参数
+     *
      * @param preparedStatement
      * @param parameterIndex
      * @param jdbcType
@@ -29,6 +30,7 @@ public abstract class AbstractJdbcTypeHandler<T> implements JdbcTypeHandler<T> {
 
     /**
      * 设置非空参数
+     *
      * @param preparedStatement
      * @param parameterIndex
      * @param parameterValue
@@ -40,11 +42,12 @@ public abstract class AbstractJdbcTypeHandler<T> implements JdbcTypeHandler<T> {
     @Override
     public T get(ResultSet resultSet, String columnName) throws SQLException {
         T value = getNullableValue(resultSet, columnName);
-        return resultSet.wasNull() ? null :value;
+        return resultSet.wasNull() ? null : value;
     }
 
     /**
      * 读取值
+     *
      * @param resultSet
      * @param columnName
      * @return
@@ -59,6 +62,7 @@ public abstract class AbstractJdbcTypeHandler<T> implements JdbcTypeHandler<T> {
 
     /**
      * 读取值
+     *
      * @param resultSet
      * @param columnIndex
      * @return
