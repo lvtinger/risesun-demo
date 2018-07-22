@@ -9,6 +9,7 @@ import com.risesun.persistence.jdbctype.JdbcTypeHandler;
  */
 public class PropertyHandler {
     private String propertyName;
+    private Class<?> propertyType;
     private GetterInvoker getterInvoker;
     private SetterInvoker setterInvoker;
     private JdbcTypeHandler<?> jdbcTypeHandler;
@@ -19,6 +20,14 @@ public class PropertyHandler {
 
     public void setPropertyName(String propertyName) {
         this.propertyName = propertyName;
+    }
+
+    public Class<?> getPropertyType() {
+        return propertyType;
+    }
+
+    public void setPropertyType(Class<?> propertyType) {
+        this.propertyType = propertyType;
     }
 
     public GetterInvoker getGetterInvoker() {
