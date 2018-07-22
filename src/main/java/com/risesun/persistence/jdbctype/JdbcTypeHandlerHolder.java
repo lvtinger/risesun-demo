@@ -6,18 +6,10 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * @author qiuxu
  */
-public final class JdbcTypeHolder {
+public final class JdbcTypeHandlerHolder {
     private final Map<Class<?>, JdbcTypeHandler<?>> mapper = new ConcurrentHashMap<>();
 
-    public <T> void put(Class<T> clazz, JdbcTypeHandler<T> handler){
-        mapper.put(clazz, handler);
-    }
-
-    public JdbcTypeHandler<?> get(Class<?> clazz){
-        return mapper.get(clazz);
-    }
-
-    private JdbcTypeHolder(){
+    private JdbcTypeHandlerHolder() {
     }
 
     public static <T> void putJdbcHandler(Class<T> clazz, JdbcTypeHandler<T> handler) {
@@ -28,11 +20,19 @@ public final class JdbcTypeHolder {
         return Builder.TYPE_HOLDER.get(clazz);
     }
 
-    public static class Builder {
-        private static final JdbcTypeHolder TYPE_HOLDER;
+    public <T> void put(Class<T> clazz, JdbcTypeHandler<T> handler) {
+        mapper.put(clazz, handler);
+    }
+
+    public JdbcTypeHandler<?> get(Class<?> clazz) {
+        return mapper.get(clazz);
+    }
+
+    private static class Builder {
+        private static final JdbcTypeHandlerHolder TYPE_HOLDER;
 
         static {
-            TYPE_HOLDER = new JdbcTypeHolder();
+            TYPE_HOLDER = new JdbcTypeHandlerHolder();
             TYPE_HOLDER.mapper.put(Integer.class, new IntegerJdbcTypeHandler());
             TYPE_HOLDER.mapper.put(String.class, new StringJdbcTypeHandler());
         }

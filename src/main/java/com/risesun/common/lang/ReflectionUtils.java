@@ -22,9 +22,9 @@ public class ReflectionUtils {
         if (fields == null) {
             List<Field> list = new LinkedList<>();
             Class<?> current = clazz;
-            while (!current.equals(Object.class)){
+            while (!current.equals(Object.class)) {
                 fields = current.getDeclaredFields();
-                if(fields != null && fields.length > 0){
+                if (fields != null && fields.length > 0) {
                     list.addAll(Arrays.asList(fields));
                 }
                 current = current.getSuperclass();

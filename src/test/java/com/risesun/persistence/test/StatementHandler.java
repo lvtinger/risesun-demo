@@ -3,7 +3,7 @@ package com.risesun.persistence.test;
 import com.risesun.persistence.datasource.Datasource;
 import com.risesun.persistence.datasource.DefaultDatasource;
 import com.risesun.persistence.jdbctype.JdbcType;
-import com.risesun.persistence.jdbctype.JdbcTypeHolder;
+import com.risesun.persistence.jdbctype.JdbcTypeHandlerHolder;
 import com.risesun.persistence.mapper.CommandType;
 import com.risesun.persistence.mapper.ParameterMapper;
 import com.risesun.persistence.mapper.StatementMapper;
@@ -50,7 +50,7 @@ public class StatementHandler {
         ParameterMapper profileParameter = new ParameterMapper();
         profileParameter.setField(profileId);
         profileParameter.setJdbcType(JdbcType.INTEGER);
-        profileParameter.setTypeHandler(JdbcTypeHolder.getJdbcTypeHandler(Integer.class));
+        profileParameter.setTypeHandler(JdbcTypeHandlerHolder.getJdbcTypeHandler(Integer.class));
         profileParameter.setParameterIndex(0);
 
         return profileParameter;
@@ -66,7 +66,7 @@ public class StatementHandler {
 
         ParameterMapper nicknameParameter = new ParameterMapper();
         nicknameParameter.setParameterIndex(0);
-        nicknameParameter.setTypeHandler(JdbcTypeHolder.getJdbcTypeHandler(String.class));
+        nicknameParameter.setTypeHandler(JdbcTypeHandlerHolder.getJdbcTypeHandler(String.class));
         nicknameParameter.setJdbcType(JdbcType.STRING);
         nicknameParameter.setField(nickname);
 
