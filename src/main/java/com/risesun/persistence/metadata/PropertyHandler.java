@@ -2,6 +2,7 @@ package com.risesun.persistence.metadata;
 
 import com.risesun.persistence.invoker.GetterInvoker;
 import com.risesun.persistence.invoker.SetterInvoker;
+import com.risesun.persistence.jdbctype.JdbcType;
 import com.risesun.persistence.jdbctype.JdbcTypeHandler;
 
 /**
@@ -13,6 +14,7 @@ public class PropertyHandler {
     private GetterInvoker getterInvoker;
     private SetterInvoker setterInvoker;
     private JdbcTypeHandler<?> jdbcTypeHandler;
+    private JdbcType jdbcType;
 
     public String getPropertyName() {
         return propertyName;
@@ -52,5 +54,13 @@ public class PropertyHandler {
 
     public void setJdbcTypeHandler(JdbcTypeHandler<?> jdbcTypeHandler) {
         this.jdbcTypeHandler = jdbcTypeHandler;
+    }
+
+    public JdbcType getJdbcType() {
+        return jdbcType;
+    }
+
+    public void setJdbcType(JdbcType jdbcType) {
+        this.jdbcType = jdbcType;
     }
 }

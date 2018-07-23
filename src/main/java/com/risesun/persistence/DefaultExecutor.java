@@ -1,7 +1,7 @@
 package com.risesun.persistence;
 
 import com.risesun.persistence.datasource.Datasource;
-import com.risesun.persistence.mapper.StatementMapper;
+import com.risesun.persistence.statment.StatementMapper;
 
 import java.sql.PreparedStatement;
 

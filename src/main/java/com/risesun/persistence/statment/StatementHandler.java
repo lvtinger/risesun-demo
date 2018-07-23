@@ -1,7 +1,6 @@
 package com.risesun.persistence.statment;
 
 import com.risesun.persistence.datasource.Datasource;
-import com.risesun.persistence.mapper.StatementMapper;
 
 import java.sql.SQLException;
 import java.sql.Statement;
