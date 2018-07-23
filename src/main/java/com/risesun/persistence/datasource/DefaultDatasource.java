@@ -21,9 +21,9 @@ public class DefaultDatasource implements Datasource {
 
     @Override
     public Connection getConnection() throws Exception {
-        if(connection == null){
-            Class.forName(driver);
-            connection = DriverManager.getConnection(url, username, password);
+        if (connection == null) {
+            Class.forName(this.driver);
+            connection = DriverManager.getConnection(this.url, this.username, this.password);
         }
         return connection;
     }

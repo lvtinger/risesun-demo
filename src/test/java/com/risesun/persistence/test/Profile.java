@@ -1,14 +1,14 @@
 package com.risesun.persistence.test;
 
 public class Profile {
-    private Integer profileId;
+    private int profileId;
     private String nickname;
 
-    public Integer getProfileId() {
+    public int getProfileId() {
         return profileId;
     }
 
-    public void setProfileId(Integer profileId) {
+    public void setProfileId(int profileId) {
         this.profileId = profileId;
     }
 
@@ -18,5 +18,13 @@ public class Profile {
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "profileId=" + profileId +
+                ", nickname='" + nickname + '\'' +
+                '}';
     }
 }

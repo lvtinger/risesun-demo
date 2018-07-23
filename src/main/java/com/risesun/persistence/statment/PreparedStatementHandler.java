@@ -1,6 +1,7 @@
 package com.risesun.persistence.statment;
 
 import com.risesun.persistence.datasource.Datasource;
+import com.risesun.persistence.mapper.CommandType;
 import com.risesun.persistence.mapper.ParameterMapper;
 import com.risesun.persistence.mapper.StatementMapper;
 
@@ -15,15 +16,18 @@ public class PreparedStatementHandler implements StatementHandler {
     @Override
     public Statement statement(Datasource datasource, StatementMapper statementMapper, Object... args) throws Exception {
         Connection connection = datasource.getConnection();
-        PreparedStatement statement = connection.prepareStatement(statementMapper.getCommand());
+
+        PreparedStatement statement = statementMapper.getCommandType().equals(CommandType.INSERT_AUTO_KEY)
+                ? connection.prepareStatement(statementMapper.getCommandText(), Statement.RETURN_GENERATED_KEYS)
+                : connection.prepareStatement(statementMapper.getCommandText());
         List<ParameterMapper> parameters = statementMapper.getParameters();
-        if(parameters != null && parameters.size() > 0){
+        if (parameters != null && parameters.size() > 0) {
             int length = parameters.size();
-            for (int i = 0; i < length; i++){
+            for (int i = 0; i < length; i++) {
                 ParameterMapper parameter = parameters.get(i);
                 Field field = parameter.getField();
                 Object value = args[parameter.getParameterIndex()];
-                if(field == null){
+                if (field == null) {
                     parameter.getTypeHandler().set(statement, i + 1, value, parameter.getJdbcType());
                 } else {
                     parameter.getTypeHandler().set(statement, i + 1, parameter.getField().get(value), parameter.getJdbcType());

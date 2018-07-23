@@ -8,16 +8,25 @@ import java.util.List;
  * @author qiuxu
  */
 public class StatementMapper {
-    private String command;
+    private String commandText;
+    private CommandType commandType;
     private List<ParameterMapper> parameters;
     private DynamicStatementBuilder builder;
 
-    public String getCommand() {
-        return command;
+    public String getCommandText() {
+        return commandText;
     }
 
-    public void setCommand(String command) {
-        this.command = command;
+    public void setCommandText(String commandText) {
+        this.commandText = commandText;
+    }
+
+    public CommandType getCommandType() {
+        return commandType;
+    }
+
+    public void setCommandType(CommandType commandType) {
+        this.commandType = commandType;
     }
 
     public List<ParameterMapper> getParameters() {
